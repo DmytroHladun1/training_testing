@@ -42,5 +42,46 @@ describe('Some test', () => {
 
         expect(enteredValue).to.be.equal(inputValue)
     })
+
+    it('success stories button', async () => {
+        const expectedUrl = 'https://ultimateqa.com/testimonials/'
+
+        await mainPage.goToPage()
+        await mainPage.openSuccessStories()
+        const currentUrl = await browser.getUrl()
+
+        expect(expectedUrl).to.be.equal(currentUrl)
+    })
+
+    it('blog button', async () => {
+        const expectedUrl = 'https://ultimateqa.com/blog/'
+        
+        await mainPage.goToPage()
+        await mainPage.openBlog()
+        const currentUrl = await browser.getUrl()
+
+        expect(expectedUrl).to.be.equal(currentUrl)
+    })
+
+    it('about button', async () => {
+        const expectedUrl = 'https://ultimateqa.com/about/'
+
+        await mainPage.goToPage()
+        await mainPage.openAbout()
+        const currentUrl = await browser.getUrl()
+
+        expect(expectedUrl).to.be.equal(currentUrl)
+    })
+
+    it.only('logo button', async () => {
+        const expectedUrl = 'https://ultimateqa.com/'
+
+        await mainPage.goToPage()
+        await mainPage.openLogo()
+        const currentUrl = await browser.getUrl()
+
+        expect(expectedUrl).to.be.equal(currentUrl)
+    })
+    
 })
 
