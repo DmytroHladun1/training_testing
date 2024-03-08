@@ -1,5 +1,5 @@
-import {MainPage} from '../pageobjects/main.page.ts'
-import {FormsPage} from '../pageobjects/forms.page.ts'
+import {MainPage} from '../../pageobjects/main.page.ts'
+import {FormsPage} from '../../pageobjects/forms.page.ts'
 import {expect} from 'chai'
 
 describe('Some test', () => {
@@ -10,7 +10,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/automation'
 
         await mainPage.goToPage()
-        const currentUrl = await mainPage.getUrl()
+        const currentUrl = await mainPage.getCurrentUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
     })
@@ -28,7 +28,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.ck.page/academy-coming-soon'
 
         await mainPage.goToPage()
-        await mainPage.openAcademyComingSoon()
+        await mainPage.openMenuItem('academic')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -47,7 +47,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/testimonials/'
 
         await mainPage.goToPage()
-        await mainPage.openSuccessStories()
+        await mainPage.openMenuItem('successStories')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -55,9 +55,9 @@ describe('Some test', () => {
 
     it('blog button', async () => {
         const expectedUrl = 'https://ultimateqa.com/blog/'
-        
+
         await mainPage.goToPage()
-        await mainPage.openBlog()
+        await mainPage.openMenuItem('blog')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -67,7 +67,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/about/'
 
         await mainPage.goToPage()
-        await mainPage.openAbout()
+        await mainPage.openMenuItem('about')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -77,11 +77,11 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/'
 
         await mainPage.goToPage()
-        await mainPage.openLogo()
+        await mainPage.openMenuItem('logo')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
     })
-    
+
 })
 
