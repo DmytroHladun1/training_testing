@@ -73,7 +73,7 @@ describe('Some test', () => {
         expect(expectedUrl).to.be.equal(currentUrl)
     })
 
-    it.only('logo button', async () => {
+    it('logo button', async () => {
         const expectedUrl = 'https://ultimateqa.com/'
 
         await mainPage.goToPage()
