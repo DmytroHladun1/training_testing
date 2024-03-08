@@ -2,7 +2,7 @@ import {BasePage} from '../lib/base.page.ts'
 import {BaseElement} from '../lib/base.element.ts'
 import {TextElement} from '../lib/elements/text.ts'
 
-type TItemName = 'academic' | 'successStories' | 'blog' | 'about' | 'logo'
+type TItemName = 'academicButton' | 'successStoriesButton' | 'blogButton' | 'aboutButton' | 'logoButton'
 
 class MainPage extends BasePage {
     private headerTitle: TextElement
@@ -23,15 +23,7 @@ class MainPage extends BasePage {
     }
 
     public async openMenuItem(itemName: TItemName) {
-        const menuItems = {
-            academic: async () => this.academicButton.click(),
-            successStories: async () => this.successStoriesButton.click(),
-            blog: async () => this.blogButton,
-            about: async () => this.aboutButton.click(),
-            logo: async () => this.logoButton.click()
-        }
-
-        await menuItems[itemName]()
+        await this[itemName].click()
     }
 
     public async getHeaderTitle() {

@@ -28,7 +28,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.ck.page/academy-coming-soon'
 
         await mainPage.goToPage()
-        await mainPage.openMenuItem('academic')
+        await mainPage.openMenuItem('academicButton')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -47,7 +47,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/testimonials/'
 
         await mainPage.goToPage()
-        await mainPage.openMenuItem('successStories')
+        await mainPage.openMenuItem('successStoriesButton')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -57,7 +57,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/blog/'
 
         await mainPage.goToPage()
-        await mainPage.openMenuItem('blog')
+        await mainPage.openMenuItem('blogButton')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -67,7 +67,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/about/'
 
         await mainPage.goToPage()
-        await mainPage.openMenuItem('about')
+        await mainPage.openMenuItem('aboutButton')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
@@ -77,7 +77,7 @@ describe('Some test', () => {
         const expectedUrl = 'https://ultimateqa.com/'
 
         await mainPage.goToPage()
-        await mainPage.openMenuItem('logo')
+        await mainPage.openMenuItem('logoButton')
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
