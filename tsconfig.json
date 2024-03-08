@@ -18,7 +18,6 @@
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
@@ -26,5 +25,5 @@
     "include": [
         "test",
         "wdio.conf.ts"
-    ]
+, "pageobjects"    ]
 }

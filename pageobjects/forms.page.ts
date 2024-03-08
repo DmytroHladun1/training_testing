@@ -1,20 +1,12 @@
-import {browser, $} from '@wdio/globals'
+import {$} from '@wdio/globals'
+import {BasePage} from '../lib/base.page.ts'
 
-class FormsPage {
-    private url: string
+class FormsPage extends BasePage {
     private nameInputSelector: string
 
     constructor() {
-        this.url = 'https://ultimateqa.com/filling-out-forms/'
+        super('https://ultimateqa.com/filling-out-forms/')
         this.nameInputSelector = '#et_pb_contact_name_0'
-    }
-
-    public async goToPage() {
-        await browser.url(this.url)
-    }
-
-    public async getUrl() {
-        return browser.getUrl()
     }
 
     public async setValueToNameField(value: string) {
