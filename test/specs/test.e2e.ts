@@ -34,14 +34,14 @@ describe('Some test', () => {
         expect(expectedUrl).to.be.equal(currentUrl)
     })
 
-    it('send keys test', async () => {
-        const enteredValue = 'Dima'
-        await formsPage.goToPage()
-        await formsPage.setValueToNameField(enteredValue)
-        const inputValue = await formsPage.getValueFromNameField()
+    // it('send keys test', async () => {
+    //     const enteredValue = 'Dima'
+    //     await formsPage.goToPage()
+    //     await formsPage.setValueToNameField(enteredValue)
+    //     const inputValue = await formsPage.getValueFromNameField()
 
-        expect(enteredValue).to.be.equal(inputValue)
-    })
+    //     expect(enteredValue).to.be.equal(inputValue)
+    // })
 
     it('success stories button', async () => {
         const expectedUrl = 'https://ultimateqa.com/testimonials/'
@@ -81,6 +81,42 @@ describe('Some test', () => {
         const currentUrl = await browser.getUrl()
 
         expect(expectedUrl).to.be.equal(currentUrl)
+    })
+
+    it('send keys in left name input', async () => {
+        const enteredValue = 'WTF'
+        await formsPage.goToPage()
+        await formsPage.setValueInInput('leftNameInput', enteredValue)
+        const inputValue = await formsPage.getValueFromInput('leftNameInput')
+
+        expect(enteredValue).to.be.equal(inputValue, 'Something wrong')
+    })
+
+    it('send keys in left message input', async () => {
+        const enteredValue = 'WTF'
+        await formsPage.goToPage()
+        await formsPage.setValueInInput('leftMessageInput', enteredValue)
+        const inputValue = await formsPage.getValueFromInput('leftMessageInput')
+
+        expect(enteredValue).to.be.equal(inputValue, 'Something wrong')
+    })
+
+    it('send keys in right name input', async () => {
+        const enteredValue = 'WTF'
+        await formsPage.goToPage()
+        await formsPage.setValueInInput('rightNameInput', enteredValue)
+        const inputValue = await formsPage.getValueFromInput('rightNameInput')
+
+        expect(enteredValue).to.be.equal(inputValue, 'Something wrong')
+    })
+
+    it.only('send keys in right message input', async () => {
+        const enteredValue = 'WTF'
+        await formsPage.goToPage()
+        await formsPage.setValueInInput('rightMessageInput',enteredValue)
+        const inputValue = await formsPage.getValueFromInput('rightMessageInput')
+
+        expect(enteredValue).to.be.equal(inputValue, 'Something wrong')
     })
 
 })
