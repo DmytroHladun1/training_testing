@@ -1,23 +1,40 @@
-import {$} from '@wdio/globals'
 import {BasePage} from '../lib/base.page.ts'
+import {BaseElement} from '../lib/base.element.ts'
+
+type inputSelecor = 'leftNameInput' | 'leftMessageInput' | 'rightNameInput' | 'rightMessageInput'
 
 class FormsPage extends BasePage {
-    private nameInputSelector: string
+    private leftNameInput: BaseElement
+    private leftMessageInput: BaseElement
+    private rightNameInput: BaseElement
+    private rightMessageInput: BaseElement
 
     constructor() {
         super('https://ultimateqa.com/filling-out-forms/')
-        this.nameInputSelector = '#et_pb_contact_name_0'
+        this.leftNameInput = new BaseElement('#et_pb_contact_name_0', 'Left name input')
+        this.leftMessageInput = new BaseElement('#et_pb_contact_message_0', 'Left message Input')
+        this.rightNameInput = new BaseElement('#et_pb_contact_name_1', 'Right name input')
+        this.rightMessageInput = new BaseElement('#et_pb_contact_message_1', 'Right message input')
+
     }
 
-    public async setValueToNameField(value: string) {
-      const nameInput = await $(this.nameInputSelector)
-      await nameInput.setValue(value)
+    public async setValueInInput(input: inputSelecor, value: string) {
+      await this[input].setValue(value)
     }
+    
+    public async getValueFromInput(input: inputSelecor) {
+      return this[input].getValue()
+    }
+    
+    // public async setValueToNameField(value: string) {
+    //   const input = await $(this.inputSelector)
+    //   await input.setValue(value)
+    // }
 
-    public async getValueFromNameField() {
-      const nameInput = await $(this.nameInputSelector)
-      return nameInput.getValue()
-    }
+    // public async getValueFromNameField() {
+    //   const input = await $(this.inputSelector)
+    //   return input.getValue()
+    // }
 }
 
 export {FormsPage}
